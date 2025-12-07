@@ -1,0 +1,219 @@
+:root {
+    --primary-color: #2c3e50; /* Blu scuro desaturato */
+    --secondary-color: #3498db; /* Blu brillante per accenti */
+    --background-color: #ecf0f1; /* Grigio molto chiaro */
+    --surface-color: #ffffff; /* Bianco per le card */
+    --text-color: #34495e; /* Grigio scuro per il testo */
+    --light-gray: #bdc3c7; /* Grigio per bordi e linee */
+
+    --font-family: 'Roboto', sans-serif;
+    --header-font-weight: 700;
+    --body-font-weight: 400;
+
+    --border-radius: 12px;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Stile base e font */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7;
+}
+
+/* Intestazione (Header) */
+header {
+    background-color: var(--primary-color);
+    color: var(--surface-color);
+    padding: 50px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    margin: 0 0 10px;
+    font-size: 3em;
+    font-weight: var(--header-font-weight);
+}
+
+header p {
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: var(--body-font-weight);
+    opacity: 0.9;
+}
+
+/* Contenitore principale */
+.container {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Stile per le sezioni (Card) */
+.card {
+    background-color: var(--surface-color);
+    padding: 35px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.card h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 15px;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 2em;
+    font-weight: var(--header-font-weight);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.toggle-button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 0.5em; /* Adjusted for smaller fit */
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0; /* Ensure no extra padding */
+}
+
+.toggle-button:hover {
+    background-color: var(--primary-color);
+}
+
+.section-content.hidden {
+    display: none;
+}
+
+
+/* Stile liste (Contatti, Competenze) */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-bottom: 12px;
+    padding-left: 15px;
+    position: relative;
+}
+
+/* Rimuoviamo il vecchio bordo e usiamo uno pseudo-elemento per un tocco moderno */
+ul li::before {
+    content: '•';
+    color: var(--secondary-color);
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    top: 0;
+    line-height: 1.2;
+}
+
+
+ul li strong {
+    font-weight: var(--header-font-weight);
+}
+
+/* Stile per le Esperienze e Formazione */
+.esperienza, .titolo-studio {
+    margin-bottom: 25px;
+    padding: 20px;
+    border-left: 4px solid var(--secondary-color);
+    background-color: #fdfdfd;
+    border-radius: 0 8px 8px 0;
+}
+
+.esperienza:last-child, .titolo-studio:last-child {
+    margin-bottom: 0;
+}
+
+.esperienza h3, .titolo-studio h3 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 8px;
+    font-size: 1.4em;
+}
+
+.azienda, .date {
+    color: #7f8c8d; /* Grigio-blu per dettagli */
+    font-style: normal;
+    font-size: 1em;
+    margin: 0 0 8px 0;
+}
+
+.note {
+    font-size: 0.95em;
+    color: #95a5a6;
+}
+
+/* Link */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 700;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    background-color: var(--primary-color);
+    color: var(--background-color);
+    font-size: 1em;
+    margin-top: 50px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5em;
+    }
+    .card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2em;
+    }
+    header p {
+        font-size: 1.1em;
+    }
+    .card {
+        padding: 20px;
+    }
+    .card h2 {
+        font-size: 1.6em;
+    }
+}
