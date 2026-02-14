@@ -9,102 +9,62 @@
 </head>
 <body>
 
-    <header>
-        <h1>Luca Bellini</h1>
-        <p>Sviluppatore Informatico Full Stack</p>
-    </header>
-
     <div class="container">
-        
-        <section id="contatti" class="card">
-            <h2>📞 Contatti <button class="toggle-button">-</button></h2>
-            <div class="section-content">
-                <ul>
-                    <li><strong>Telefono:</strong> 345 581 5112</li>
-                    <li><strong>Email:</strong> perni24lb@gmail.com</li>
-                    <li><strong>Residenza:</strong> Borgo di Terzo, BG</li>
-                    <li><strong>GitHub:</strong> <a href="https://github.com/perni24" target="_blank">https://github.com/perni24</a></li>
-                    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lucabellini" target="_blank">Luca Bellini | LinkedIn</a></li>
-                </ul>
+        <header>
+            <div class="header-content">
+                <h1 id="nome">Caricamento...</h1>
+                <button id="dark-mode-toggle">🌙</button>
             </div>
-        </section>
-
-        <section id="esperienze" class="card">
-            <h2>💼 Esperienze Lavorative <button class="toggle-button">-</button></h2>
-            <div class="section-content">
-                <div class="esperienza">
-                    <h3>Sviluppatore Informatico Full Stack (Apprendistato)</h3>
-                    <p class="azienda">Strutture-energia</p>
-                    <p class="date">01/04/2024 – Oggi</p>
-                </div>
-                
-                <div class="esperienza">
-                    <h3>Sviluppatore Informatico Full Stack (Tirocinio)</h3>
-                    <p class="azienda">Strutture-energia</p>
-                    <p class="date">2023 (durata di un anno)</p>
-                    <p class="note">Svolto durante gli studi presso Jobs Accademy</p>
-                </div>
-                
-                <div class="esperienza">
-                    <h3>Servizio civile</h3>
-                    <p class="azienda">Comune Grone</p>
-                    <p class="date">25/05/2022 – 25/05/2023</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="competenze" class="card">
-            <h2>🛠️ Competenze <button class="toggle-button">-</button></h2>
-            <div class="section-content">
-                <h3>Linguaggi</h3>
-                <ul>
-                    <li><strong>JavaScript:</strong> Avanzato</li>
-                    <li><strong>Sql:</strong> Intermedio</li>
-                    <li><strong>Html/Css:</strong> Intermedio</li>
-                    <li><strong>Php:</strong> Intermedio</li>
-                    <li><strong>Python:</strong> Base</li>
-                    <li><strong>C++:</strong> Base</li>
-                    <li><strong>Rust:</strong> Base</li>
-                </ul>
-
-                <h3>Software</h3>
-                <ul>
-                    <li><strong>Visual Studio Code:</strong> Avanzato</li>
-                    <li><strong>Dbeaver:</strong> Intermedio</li>
-                    <li><strong>Navicat:</strong> Intermedio</li>
-                    <li><strong>Filezilla:</strong> Intermedio</li>
-                    <li><strong>GitHub:</strong> Base</li>
-                </ul>
-                
-                <h3>Sistemi Operativi</h3>
-                <ul>
-                    <li><strong>Windows:</strong> Intermedio</li>
-                    <li><strong>Linux:</strong> Base</li>
-                    <li><strong>Home Assistant:</strong> Base</li>
-                </ul>
-            </div>
-        </section>
-
-        <section id="formazione" class="card">
-            <h2>📚 Formazione <button class="toggle-button">-</button></h2>
-            <div class="section-content">
-                <div class="titolo-studio">
-                    <h3>Software Developer</h3>
-                    <p><strong>ITS jobs accademy</strong>, Anno 2024, Voto: 90/100</p>
-                </div>
-                
-                <div class="titolo-studio">
-                    <h3>Liceo scientifico opz. scienze applicate</h3>
-                    <p>Anno 2020, Voto: 73/100</p>
-                </div>
-            </div>
-        </section>
-
+                        <p id="titolo"></p>
+                    </header>
+            
+                    <main>
+                        <section id="contatti-section" class="collapsible">
+                            <div class="collapsible-header">
+                                <h2>Contatti</h2>
+                                <button class="toggle-btn">−</button>
+                            </div>
+                            <div class="collapsible-content">
+                                <div id="contatti-list" class="contact-info"></div>
+                            </div>
+                        </section>
+            
+                        <section id="esperienze-section" class="collapsible">
+                            <div class="collapsible-header">
+                                <h2>Esperienze Professionali</h2>
+                                <button class="toggle-btn">−</button>
+                            </div>
+                            <div class="collapsible-content">
+                                <div id="esperienze-list"></div>
+                            </div>
+                        </section>
+            
+                        <section id="competenze-section" class="collapsible">
+                            <div class="collapsible-header">
+                                <h2>Competenze</h2>
+                                <button class="toggle-btn">−</button>
+                            </div>
+                            <div class="collapsible-content">
+                                <div id="competenze-container" class="skills-grid"></div>
+                            </div>
+                        </section>
+            
+                        <section id="formazione-section" class="collapsible">
+                            <div class="collapsible-header">
+                                <h2>Formazione</h2>
+                                <button class="toggle-btn">−</button>
+                            </div>
+                            <div class="collapsible-content">
+                                <div id="formazione-list"></div>
+                            </div>
+                        </section>
+                    </main>
+            
+                    <footer>
+            <p id="ultimo-aggiornamento"></p>
+            <p>&copy; Luca Bellini. Tutti i diritti riservati.</p>
+        </footer>
     </div>
-
-    <footer>
-        <p>&copy; 2025 Luca Bellini. Tutti i diritti riservati.</p>
-    </footer>
 
     <script src="script.js"></script>
 </body>

@@ -1,0 +1,73 @@
+{
+    "ultimo aggiornamento": "02/2026",
+    "nome": "Luca Bellini",
+    "titolo": "Software Developer Full Stack",
+    "contatti": {
+        "telefono": "345 581 5112",
+        "email": "perni24lb@gmail.com",
+        "residenza": "Borgo di Terzo, BG",
+        "github": "https://github.com/perni24",
+        "linkedin": "https://www.linkedin.com/in/luca-bellini-96b865367/"
+    },
+    "esperienze": [
+        {
+            "ruolo": "Software Developer Full Stack (Apprendistato)",
+            "azienda": "Strutture-energia",
+            "periodo": "01/04/2024 – Oggi",
+            "note": "Sviluppo e manutenzione di applicativi web full-stack per il monitoraggio energetico."
+        },
+        {
+            "ruolo": "Software Developer Full Stack (Tirocinio)",
+            "azienda": "Strutture-energia",
+            "periodo": "2023",
+            "note": "Svolto durante gli studi presso Jobs Academy (Bergamo)."
+        },
+        {
+            "ruolo": "Servizio Civile Universale",
+            "azienda": "Comune di Grone",
+            "periodo": "2022 – 2023",
+            "note": "Supporto amministrativo e digitalizzazione processi."
+        }
+    ],
+    "competenze": {
+        "linguaggi_web": [
+            { "nome": "JavaScript (ES6+)", "livello": "Avanzato" },
+            { "nome": "PHP", "livello": "Intermedio" },
+            { "nome": "HTML5 / CSS3", "livello": "Intermedio" }
+        ],
+        "database_e_analisi": [
+            { "nome": "SQL (MySQL/MariaDB)", "livello": "Intermedio" },
+            { "nome": "Navicat / DBeaver", "livello": "Intermedio" }
+        ],
+        "altri_linguaggi": [
+            { "nome": "Python", "livello": "Intermedio" },
+            { "nome": "C++", "livello": "Base" },
+            { "nome": "Rust", "livello": "Base" }
+        ],
+        "strumenti_e_devops": [
+            { "nome": "Git / GitHub", "livello": "Intermedio" },
+            { "nome": "Linux (Bash/CLI)", "livello": "Base" }
+        ],
+        "iot_e_automazione": [
+            { "nome": "Home Assistant (IoT)", "livello": "Intermedio" },
+            { "nome": "YAML (espHome)", "livello": "Intermedio"}
+        ],
+        "ai":[
+            { "nome": "Google Gemini (CLI & SDK)", "livello": "Intermedio" }
+        ]
+    },
+    "formazione": [
+        {
+            "corso": "Diploma di Tecnico Superiore (ITS) - Software Developer",
+            "istituto": "Jobs Academy",
+            "anno": "2024",
+            "voto": "90/100"
+        },
+        {
+            "corso": "Liceo Scientifico (Opzione Scienze Applicate)",
+            "istituto": "Leonardo da Vinci (BG)",
+            "anno": "2020",
+            "voto": "73/100"
+        }
+    ]
+}
