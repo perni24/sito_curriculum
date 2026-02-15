@@ -28,6 +28,16 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
+a, a:visited {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .container {
     max-width: 800px;
     margin: 40px auto;
