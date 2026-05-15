@@ -30,22 +30,24 @@
         }
     ],
     "competenze": {
-        "linguaggi_web": [
+        "linguaggi": [
             { "nome": "JavaScript (ES6+)", "livello": "Avanzato" },
             { "nome": "PHP", "livello": "Intermedio" },
-            { "nome": "HTML5 / CSS3", "livello": "Intermedio" }
-        ],
-        "database_e_analisi": [
-            { "nome": "SQL (MySQL/MariaDB)", "livello": "Intermedio" },
-            { "nome": "Navicat / DBeaver", "livello": "Intermedio" }
-        ],
-        "altri_linguaggi": [
             { "nome": "Python", "livello": "Intermedio" },
-            { "nome": "C++", "livello": "Base" },
             { "nome": "Rust", "livello": "Base" }
+        ],
+        "database": [
+            { "nome": "MariaDB", "livello": "Intermedio" },
+            { "nome": "PostgreSQL", "livello": "Base" }
+        ],
+        "framework_e_tecnologie": [
+            { "nome": "React", "livello": "Intermedio" },
+            { "nome": "HTML5 / CSS3", "livello": "Intermedio" },
+            { "nome": "Node.js", "livello": "Base" }
         ],
         "strumenti_e_devops": [
             { "nome": "Git / GitHub", "livello": "Intermedio" },
+            { "nome": "Navicat / DBeaver", "livello": "Intermedio" },
             { "nome": "Linux (Bash/CLI)", "livello": "Base" }
         ],
         "iot_e_automazione": [
@@ -53,7 +55,10 @@
             { "nome": "YAML (espHome)", "livello": "Intermedio"}
         ],
         "ai":[
-            { "nome": "Google Gemini (CLI & SDK)", "livello": "Intermedio" }
+            { "nome": "AI Coding Agents (Codex, Claude Code, Antigravity)", "livello": "Intermedio" },
+            { "nome": "Agentic Development Workflows", "livello": "Intermedio" },
+            { "nome": "LLM CLI Tools", "livello": "Intermedio" },
+            { "nome": "Local LLM Testing / Inference", "livello": "Base" }
         ]
     },
     "formazione": [
