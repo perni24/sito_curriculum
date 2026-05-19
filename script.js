@@ -1,33 +1,30 @@
 async function loadData() {
     try {
-        const response = await fetch('data.json');
+        const response = await fetch("data.json");
         if (!response.ok) {
             throw new Error(`Errore nel caricamento del file JSON: ${response.statusText}`);
         }
         const data = await response.json();
         renderCV(data);
     } catch (error) {
-        console.error('Si è verificato un errore:', error);
-        document.getElementById('nome').textContent = "Errore nel caricamento";
+        console.error("Si è verificato un errore:", error);
+        document.getElementById("nome").textContent = "Errore nel caricamento";
     }
 }
 
-/**
- * Utility per creare elementi in modo più pulito
- */
 function el(tag, props = {}, children = []) {
     const element = document.createElement(tag);
     Object.entries(props).forEach(([key, value]) => {
-        if (key === 'textContent') {
+        if (key === "textContent") {
             element.textContent = value;
-        } else if (key === 'className') {
+        } else if (key === "className") {
             element.className = value;
         } else {
             element.setAttribute(key, value);
         }
     });
     children.forEach(child => {
-        if (typeof child === 'string') {
+        if (typeof child === "string") {
             element.appendChild(document.createTextNode(child));
         } else {
             element.appendChild(child);
@@ -36,119 +33,117 @@ function el(tag, props = {}, children = []) {
     return element;
 }
 
-function renderCV(data) {
-    // Header basics
-    document.getElementById('nome').textContent = data.nome;
-    document.getElementById('titolo').textContent = data.titolo;
-    document.getElementById('ultimo-aggiornamento').textContent = `Ultimo aggiornamento: ${data["ultimo aggiornamento"]}`;
+function formatCategoryName(category) {
+    return category.replace(/_/g, " ");
+}
 
-    // Contatti
-    const contattiList = document.getElementById('contatti-list');
-    contattiList.innerHTML = '';
-    
+function renderCV(data) {
+    document.getElementById("nome").textContent = data.nome;
+    document.getElementById("titolo").textContent = data.titolo;
+    document.getElementById("profilo").textContent = data.profilo
+        || "Sviluppatore full stack con esperienza su applicativi web, database e strumenti di automazione. Mi occupo di sviluppo e manutenzione di soluzioni software concrete.";
+    document.getElementById("ultimo-aggiornamento").textContent = `Ultimo aggiornamento: ${data["ultimo aggiornamento"]}`;
+
+    renderContacts(data.contatti);
+    renderExperiences(data.esperienze);
+    renderSkills(data.competenze);
+    renderEducation(data.formazione);
+}
+
+function renderContacts(contatti) {
+    const contattiList = document.getElementById("contatti-list");
+    contattiList.innerHTML = "";
+
     const contactEntries = [
-        { label: 'Residenza', value: data.contatti.residenza },
-        { label: 'Email', value: data.contatti.email, isEmail: true },
-        { label: 'Telefono', value: data.contatti.telefono },
-        { label: 'GitHub', value: data.contatti.github, isLink: true },
-        { label: 'LinkedIn', value: data.contatti.linkedin, isLink: true }
+        { label: "Residenza", value: contatti.residenza },
+        { label: "Email", value: contatti.email, href: `mailto:${contatti.email}` },
+        { label: "Telefono", value: contatti.telefono, href: `tel:${contatti.telefono.replace(/\s/g, "")}` },
+        { label: "GitHub", value: "github.com/perni24", href: contatti.github },
+        { label: "LinkedIn", value: "Profilo LinkedIn", href: contatti.linkedin }
     ];
 
     contactEntries.forEach(item => {
-        const p = el('p');
-        const strong = el('strong', { textContent: `${item.label}: ` });
-        p.appendChild(strong);
+        const value = item.href
+            ? el("a", { className: "contact-value", href: item.href, target: item.href.startsWith("http") ? "_blank" : "_self", textContent: item.value })
+            : el("span", { className: "contact-value", textContent: item.value });
 
-        if (item.isEmail) {
-            p.appendChild(el('a', { href: `mailto:${item.value}`, textContent: item.value }));
-        } else if (item.isLink) {
-            p.appendChild(el('a', { href: item.value, target: '_blank', textContent: item.label === 'GitHub' ? 'GitHub' : 'LinkedIn' }));
-        } else {
-            p.appendChild(document.createTextNode(item.value));
-        }
-        contattiList.appendChild(p);
+        contattiList.appendChild(el("div", { className: "contact-item" }, [
+            el("span", { className: "contact-label", textContent: item.label }),
+            value
+        ]));
     });
+}
 
-    // Esperienze
-    const esperienzeList = document.getElementById('esperienze-list');
-    esperienzeList.innerHTML = '';
-    data.esperienze.forEach(exp => {
-        const item = el('div', { className: 'item' }, [
-            el('h3', { textContent: exp.ruolo }),
-            el('p', { className: 'azienda-periodo' }, [
-                el('strong', { textContent: exp.azienda }),
+function renderExperiences(esperienze) {
+    const esperienzeList = document.getElementById("esperienze-list");
+    esperienzeList.innerHTML = "";
+
+    esperienze.forEach(exp => {
+        esperienzeList.appendChild(el("article", { className: "item" }, [
+            el("h3", { textContent: exp.ruolo }),
+            el("p", { className: "azienda-periodo" }, [
+                el("strong", { textContent: exp.azienda }),
                 ` | ${exp.periodo}`
             ]),
-            el('p', { className: 'note', textContent: exp.note })
-        ]);
-        esperienzeList.appendChild(item);
+            el("p", { className: "note", textContent: exp.note })
+        ]));
     });
+}
 
-    // Competenze
-    const competenzeContainer = document.getElementById('competenze-container');
-    competenzeContainer.innerHTML = '';
-    for (const [categoria, skills] of Object.entries(data.competenze)) {
-        const catDiv = el('div', { className: 'skill-category' }, [
-            el('h3', { textContent: categoria.replace(/_/g, ' ') })
-        ]);
-        const ul = el('ul');
+function renderSkills(competenze) {
+    const competenzeContainer = document.getElementById("competenze-container");
+    competenzeContainer.innerHTML = "";
+
+    for (const [categoria, skills] of Object.entries(competenze)) {
+        const list = el("ul", { className: "skill-list" });
         skills.forEach(skill => {
-            const li = el('li');
-            li.appendChild(el('strong', { textContent: skill.nome }));
-            li.appendChild(document.createTextNode(`: ${skill.livello}`));
-            ul.appendChild(li);
+            list.appendChild(el("li", { className: "skill-badge" }, [
+                el("span", { textContent: skill.nome }),
+                el("span", { className: "skill-level", textContent: skill.livello })
+            ]));
         });
-        catDiv.appendChild(ul);
-        competenzeContainer.appendChild(catDiv);
-    }
 
-    // Formazione
-    const formazioneList = document.getElementById('formazione-list');
-    formazioneList.innerHTML = '';
-    data.formazione.forEach(edu => {
-        const item = el('div', { className: 'item' }, [
-            el('h3', { textContent: edu.corso }),
-            el('p', { className: 'istituto-anno' }, [
-                el('strong', { textContent: edu.istituto }),
+        competenzeContainer.appendChild(el("div", { className: "skill-category" }, [
+            el("h3", { textContent: formatCategoryName(categoria) }),
+            list
+        ]));
+    }
+}
+
+function renderEducation(formazione) {
+    const formazioneList = document.getElementById("formazione-list");
+    formazioneList.innerHTML = "";
+
+    formazione.forEach(edu => {
+        formazioneList.appendChild(el("article", { className: "item" }, [
+            el("h3", { textContent: edu.corso }),
+            el("p", { className: "istituto-anno" }, [
+                el("strong", { textContent: edu.istituto }),
                 ` | ${edu.anno}`
             ]),
-            el('p', { textContent: `Voto: ${edu.voto}` })
-        ]);
-        formazioneList.appendChild(item);
+            el("p", { className: "education-vote", textContent: `Voto: ${edu.voto}` })
+        ]));
     });
 }
 
 function initDarkMode() {
-    const toggle = document.getElementById('dark-mode-toggle');
+    const toggle = document.getElementById("dark-mode-toggle");
     const body = document.body;
 
-    if (localStorage.getItem('dark-mode') === 'enabled') {
-        body.classList.add('dark-mode');
-        toggle.textContent = '☀️';
+    if (localStorage.getItem("dark-mode") === "enabled") {
+        body.classList.add("dark-mode");
+        toggle.textContent = "☀️";
     }
 
-    toggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const isDark = body.classList.contains('dark-mode');
-        localStorage.setItem('dark-mode', isDark ? 'enabled' : 'disabled');
-        toggle.textContent = isDark ? '☀️' : '🌙';
+    toggle.addEventListener("click", () => {
+        body.classList.toggle("dark-mode");
+        const isDark = body.classList.contains("dark-mode");
+        localStorage.setItem("dark-mode", isDark ? "enabled" : "disabled");
+        toggle.textContent = isDark ? "☀️" : "🌙";
     });
 }
 
-function initCollapsibles() {
-    const headers = document.querySelectorAll('.collapsible-header');
-    headers.forEach(header => {
-        header.addEventListener('click', () => {
-            const section = header.parentElement;
-            const btn = header.querySelector('.toggle-btn');
-            section.classList.toggle('collapsed');
-            btn.textContent = section.classList.contains('collapsed') ? '+' : '−';
-        });
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     loadData();
     initDarkMode();
-    initCollapsibles();
 });

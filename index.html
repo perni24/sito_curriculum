@@ -5,64 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curriculum Vitae - Luca Bellini</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <div class="container">
-        <header>
-            <div class="header-content">
+    <div class="page-shell">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">Curriculum vitae</p>
                 <h1 id="nome">Caricamento...</h1>
-                <button id="dark-mode-toggle">🌙</button>
+                <p id="titolo" class="role"></p>
+                <p id="profilo" class="profile"></p>
             </div>
-                        <p id="titolo"></p>
-                    </header>
-            
-                    <main>
-                        <section id="contatti-section" class="collapsible">
-                            <div class="collapsible-header">
-                                <h2>Contatti</h2>
-                                <button class="toggle-btn">−</button>
-                            </div>
-                            <div class="collapsible-content">
-                                <div id="contatti-list" class="contact-info"></div>
-                            </div>
-                        </section>
-            
-                        <section id="esperienze-section" class="collapsible">
-                            <div class="collapsible-header">
-                                <h2>Esperienze Professionali</h2>
-                                <button class="toggle-btn">−</button>
-                            </div>
-                            <div class="collapsible-content">
-                                <div id="esperienze-list"></div>
-                            </div>
-                        </section>
-            
-                        <section id="competenze-section" class="collapsible">
-                            <div class="collapsible-header">
-                                <h2>Competenze</h2>
-                                <button class="toggle-btn">−</button>
-                            </div>
-                            <div class="collapsible-content">
-                                <div id="competenze-container" class="skills-grid"></div>
-                            </div>
-                        </section>
-            
-                        <section id="formazione-section" class="collapsible">
-                            <div class="collapsible-header">
-                                <h2>Formazione</h2>
-                                <button class="toggle-btn">−</button>
-                            </div>
-                            <div class="collapsible-content">
-                                <div id="formazione-list"></div>
-                            </div>
-                        </section>
-                    </main>
-            
-                    <footer>
+            <button id="dark-mode-toggle" type="button" aria-label="Cambia tema">🌙</button>
+        </header>
+
+        <main class="cv-layout">
+            <aside class="sidebar">
+                <section id="contatti-section" class="panel">
+                    <h2>Contatti</h2>
+                    <div id="contatti-list" class="contact-info"></div>
+                </section>
+
+                <section id="formazione-section" class="panel">
+                    <h2>Formazione</h2>
+                    <div id="formazione-list"></div>
+                </section>
+            </aside>
+
+            <div class="content">
+                <section id="esperienze-section" class="panel">
+                    <h2>Esperienze professionali</h2>
+                    <div id="esperienze-list" class="timeline"></div>
+                </section>
+
+                <section id="competenze-section" class="panel">
+                    <h2>Competenze</h2>
+                    <div id="competenze-container" class="skills-grid"></div>
+                </section>
+
+            </div>
+        </main>
+
+        <footer>
             <p id="ultimo-aggiornamento"></p>
-            <p>&copy; Luca Bellini. Tutti i diritti riservati.</p>
         </footer>
     </div>
 

@@ -1,7 +1,8 @@
 {
-    "ultimo aggiornamento": "02/2026",
+    "ultimo aggiornamento": "05/2026",
     "nome": "Luca Bellini",
     "titolo": "Software Developer Full Stack",
+    "profilo": "Sviluppatore full stack con esperienza su applicativi web, database e strumenti di automazione. Mi occupo di sviluppo e manutenzione di soluzioni software, con attenzione a codice pulito, dati e workflow di sviluppo moderni.",
     "contatti": {
         "telefono": "345 581 5112",
         "email": "perni24lb@gmail.com",
@@ -55,7 +56,7 @@
             { "nome": "YAML (espHome)", "livello": "Intermedio"}
         ],
         "ai":[
-            { "nome": "AI Coding Agents (Codex, Claude Code, Antigravity)", "livello": "Intermedio" },
+            { "nome": "AI Coding Agents", "livello": "Intermedio" },
             { "nome": "Agentic Development Workflows", "livello": "Intermedio" },
             { "nome": "LLM CLI Tools", "livello": "Intermedio" },
             { "nome": "Local LLM Testing / Inference", "livello": "Base" }
