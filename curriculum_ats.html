@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculum Vitae - Luca Bellini</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --accent: #2563eb;
+        --text: #1f2937;
+        --heading: #0f172a;
+        --muted: #64748b;
+        --border: #dbe3ee;
+    }
+
+    @page {
+        size: A4;
+        margin: 14mm 15mm;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        background: #eef2f7;
+        color: var(--text);
+        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+        font-size: 10pt;
+        line-height: 1.45;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .sheet {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 24px auto;
+        padding: 14mm 15mm;
+        background: #fff;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid var(--accent);
+    }
+
+    h1 {
+        margin: 0;
+        color: var(--heading);
+        font-size: 24pt;
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
+    }
+
+    .role {
+        margin: 4px 0 10px;
+        color: var(--accent);
+        font-size: 12pt;
+        font-weight: 600;
+    }
+
+    .contacts {
+        margin: 0;
+        color: var(--muted);
+        font-size: 9pt;
+    }
+
+    .contacts span {
+        white-space: nowrap;
+    }
+
+    .contacts span + span::before {
+        content: "|";
+        margin: 0 7px;
+        color: var(--border);
+    }
+
+    .qr {
+        flex-shrink: 0;
+        text-align: center;
+        color: var(--muted);
+        font-size: 7pt;
+    }
+
+    .qr img {
+        display: block;
+        width: 22mm;
+        height: 22mm;
+        margin-bottom: 2px;
+    }
+
+    section {
+        margin-top: 14px;
+    }
+
+    h2 {
+        margin: 0 0 8px;
+        padding-bottom: 3px;
+        border-bottom: 1px solid var(--border);
+        color: var(--accent);
+        font-size: 10pt;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+
+    .entry {
+        break-inside: avoid;
+    }
+
+    .entry + .entry {
+        margin-top: 9px;
+    }
+
+    .entry-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+    }
+
+    h3 {
+        margin: 0;
+        color: var(--heading);
+        font-size: 10.5pt;
+        font-weight: 700;
+    }
+
+    .date {
+        flex-shrink: 0;
+        color: var(--muted);
+        font-size: 9pt;
+        font-weight: 600;
+    }
+
+    .org {
+        margin: 1px 0 0;
+        color: var(--muted);
+        font-weight: 600;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    ul {
+        margin: 4px 0 0;
+        padding-left: 16px;
+    }
+
+    li + li {
+        margin-top: 2px;
+    }
+
+    .skills {
+        list-style: none;
+        padding: 0;
+    }
+
+    .skills li + li {
+        margin-top: 3px;
+    }
+
+    .skills strong {
+        color: var(--heading);
+    }
+
+    .level {
+        color: var(--muted);
+    }
+
+    .consent {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 7.5pt;
+    }
+
+    @media print {
+        body {
+            background: none;
+        }
+
+        .sheet {
+            width: auto;
+            min-height: 0;
+            margin: 0;
+            padding: 0;
+            box-shadow: none;
+        }
+    }
+
+    @media screen and (max-width: 820px) {
+        .sheet {
+            width: auto;
+            min-height: 0;
+            margin: 0;
+            padding: 20px 16px;
+        }
+
+        header,
+        .entry-head {
+            flex-direction: column;
+            gap: 4px;
+        }
+    }
+</style>
+</head>
+<body>
+    <main class="sheet">
+        
+        <header>
+            <div>
+                <h1>Luca Bellini</h1>
+                <p class="role">Software Developer Full Stack</p>
+                <p class="contacts"><span>Borgo di Terzo, BG</span> <span><a href="tel:3455815112">345 581 5112</a></span> <span><a href="mailto:perni24lb@gmail.com">perni24lb@gmail.com</a></span></p>
+                <p class="contacts"><span>LinkedIn: <a href="https://www.linkedin.com/in/luca-bellini-96b865367/">linkedin.com/in/luca-bellini-96b865367</a></span> <span>GitHub: <a href="https://github.com/perni24">github.com/perni24</a></span></p>
+                <p class="contacts"><span>Portfolio: <a href="https://perni24.github.io/sito_curriculum/">perni24.github.io/sito_curriculum</a></span></p>
+            </div>
+            <a class="qr" href="https://perni24.github.io/sito_curriculum/">
+                <img src="img/qrcode_curriculum.png" alt="QR code del curriculum online">
+                CV online
+            </a>
+        </header>
+<section><h2>Profilo</h2><p>Sviluppatore full stack con esperienza su applicativi web, database e strumenti di automazione. Mi occupo di sviluppo e manutenzione di soluzioni software, con attenzione a codice pulito, dati e workflow di sviluppo moderni.</p></section>
+<section><h2>Esperienza professionale</h2>
+        <div class="entry">
+            <div class="entry-head">
+                <h3>Software Developer Full Stack (Apprendistato)</h3>
+                <span class="date">04/2024 – Oggi</span>
+            </div>
+            <p class="org">Strutture-energia</p>
+            <ul><li>Sviluppo e manutenzione di applicativi web full-stack per il monitoraggio energetico.</li></ul>
+        </div>
+        <div class="entry">
+            <div class="entry-head">
+                <h3>Software Developer Full Stack (Tirocinio)</h3>
+                <span class="date">2023</span>
+            </div>
+            <p class="org">Strutture-energia</p>
+            <ul><li>Svolto durante gli studi presso Jobs Academy (Bergamo).</li></ul>
+        </div>
+        <div class="entry">
+            <div class="entry-head">
+                <h3>Servizio Civile Universale</h3>
+                <span class="date">2022 – 2023</span>
+            </div>
+            <p class="org">Comune di Grone</p>
+            <ul><li>Supporto amministrativo e digitalizzazione processi.</li></ul>
+        </div></section>
+<section><h2>Competenze tecniche</h2><ul class="skills"><li><strong>Linguaggi:</strong> JavaScript (ES6+) <span class="level">– avanzato</span>, PHP <span class="level">– intermedio</span>, Python <span class="level">– intermedio</span>, Rust <span class="level">– base</span></li><li><strong>Database:</strong> MariaDB <span class="level">– intermedio</span>, PostgreSQL <span class="level">– base</span></li><li><strong>Framework e tecnologie:</strong> React <span class="level">– intermedio</span>, HTML5 / CSS3 <span class="level">– intermedio</span>, Node.js <span class="level">– base</span></li><li><strong>Strumenti e DevOps:</strong> Git / GitHub <span class="level">– intermedio</span>, Navicat / DBeaver <span class="level">– intermedio</span>, Linux (Bash/CLI) <span class="level">– base</span></li><li><strong>IoT e automazione:</strong> Home Assistant (IoT) <span class="level">– intermedio</span>, YAML (espHome) <span class="level">– intermedio</span></li><li><strong>AI e sviluppo assistito:</strong> AI Coding Agents <span class="level">– intermedio</span>, Agentic Development Workflows <span class="level">– intermedio</span>, LLM CLI Tools <span class="level">– intermedio</span>, Local LLM Testing / Inference <span class="level">– base</span></li></ul></section>
+<section><h2>Formazione</h2>
+        <div class="entry">
+            <div class="entry-head">
+                <h3>Diploma di Tecnico Superiore (ITS) - Software Developer</h3>
+                <span class="date">2024</span>
+            </div>
+            <p class="org">Jobs Academy | Voto: 90/100</p>
+            
+        </div>
+        <div class="entry">
+            <div class="entry-head">
+                <h3>Liceo Scientifico (Opzione Scienze Applicate)</h3>
+                <span class="date">2020</span>
+            </div>
+            <p class="org">Leonardo da Vinci (BG) | Voto: 73/100</p>
+            
+        </div></section>
+<p class="consent">Autorizzo il trattamento dei dati personali contenuti nel presente curriculum ai sensi del D.Lgs. 196/2003 e del Regolamento UE 2016/679 (GDPR).</p>
+    </main>
+</body>
+</html>

@@ -104,6 +104,37 @@ header h1 {
     margin-bottom: 0;
 }
 
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.download-btn,
+.download-btn:visited {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background: var(--accent-color);
+    color: #ffffff;
+    font-size: 0.92rem;
+    font-weight: 700;
+    white-space: nowrap;
+    transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+body.dark-mode .download-btn {
+    color: #0b1120;
+}
+
+.download-btn:hover {
+    filter: brightness(1.08);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
 #dark-mode-toggle {
     width: 44px;
     height: 44px;
@@ -317,6 +348,7 @@ footer p {
     }
 
     .hero {
+        position: relative;
         grid-template-columns: 1fr;
         padding: 28px;
     }

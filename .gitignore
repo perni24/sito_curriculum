@@ -1,0 +1,15 @@
+# Configurazione locale di Claude Code / editor
+.claude/
+.vscode/
+.idea/
+
+# File di sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Dipendenze Node
+node_modules/
+
+# PDF esportati di prova nella root (il PDF pubblicato sta in pdf/)
+/*.pdf
