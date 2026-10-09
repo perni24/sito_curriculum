@@ -48,6 +48,25 @@ function renderCV(data) {
     renderExperiences(data.esperienze);
     renderSkills(data.competenze);
     renderEducation(data.formazione);
+    renderLanguages(data.lingue);
+}
+
+function renderLanguages(lingue) {
+    const section = document.getElementById("lingue-section");
+    if (!lingue || !lingue.length) {
+        section.hidden = true;
+        return;
+    }
+
+    const lingueList = document.getElementById("lingue-list");
+    lingueList.innerHTML = "";
+
+    lingue.forEach(lingua => {
+        lingueList.appendChild(el("div", { className: "contact-item" }, [
+            el("span", { className: "contact-label", textContent: lingua.lingua }),
+            el("span", { className: "contact-value", textContent: lingua.livello })
+        ]));
+    });
 }
 
 function renderContacts(contatti) {
@@ -79,13 +98,17 @@ function renderExperiences(esperienze) {
     esperienzeList.innerHTML = "";
 
     esperienze.forEach(exp => {
+        const note = Array.isArray(exp.note)
+            ? el("ul", { className: "note note-list" }, exp.note.map(n => el("li", { textContent: n })))
+            : el("p", { className: "note", textContent: exp.note });
+
         esperienzeList.appendChild(el("article", { className: "item" }, [
             el("h3", { textContent: exp.ruolo }),
             el("p", { className: "azienda-periodo" }, [
                 el("strong", { textContent: exp.azienda }),
                 ` | ${exp.periodo}`
             ]),
-            el("p", { className: "note", textContent: exp.note })
+            note
         ]));
     });
 }
@@ -97,10 +120,11 @@ function renderSkills(competenze) {
     for (const [categoria, skills] of Object.entries(competenze)) {
         const list = el("ul", { className: "skill-list" });
         skills.forEach(skill => {
-            list.appendChild(el("li", { className: "skill-badge" }, [
-                el("span", { textContent: skill.nome }),
-                el("span", { className: "skill-level", textContent: skill.livello })
-            ]));
+            const children = [el("span", { textContent: skill.nome })];
+            if (skill.livello) {
+                children.push(el("span", { className: "skill-level", textContent: skill.livello }));
+            }
+            list.appendChild(el("li", { className: "skill-badge" }, children));
         });
 
         competenzeContainer.appendChild(el("div", { className: "skill-category" }, [

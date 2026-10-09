@@ -1,12 +1,12 @@
 {
-    "ultimo aggiornamento": "05/2026",
+    "ultimo aggiornamento": "10/2026",
     "nome": "Luca Bellini",
     "titolo": "Software Developer Full Stack",
-    "profilo": "Sviluppatore full stack con esperienza su applicativi web, database e strumenti di automazione. Mi occupo di sviluppo e manutenzione di soluzioni software, con attenzione a codice pulito, dati e workflow di sviluppo moderni.",
+    "profilo": "Sviluppatore full stack con oltre 2 anni di esperienza nello sviluppo di applicativi web gestionali: anagrafiche, gestione documentale, progetti e moduli operativi su misura. Mi occupo anche di domotica per l'efficientamento energetico con Home Assistant ed ESPHome e di strumenti di analisi documentale basati su AI. Utilizzo agenti di coding AI (Claude Code, Codex) nel flusso di sviluppo.",
     "contatti": {
         "telefono": "345 581 5112",
         "email": "perni24lb@gmail.com",
-        "residenza": "Borgo di Terzo, BG",
+        "residenza": "Provincia di Bergamo",
         "github": "https://github.com/perni24",
         "linkedin": "https://www.linkedin.com/in/luca-bellini-96b865367/"
     },
@@ -14,8 +14,12 @@
         {
             "ruolo": "Software Developer Full Stack (Apprendistato)",
             "azienda": "Strutture-energia",
-            "periodo": "01/04/2024 – Oggi",
-            "note": "Sviluppo e manutenzione di applicativi web full-stack per il monitoraggio energetico."
+            "periodo": "04/2024 – Oggi",
+            "note": [
+                "Sviluppo full stack di un gestionale aziendale per commesse e cantieri: anagrafiche, progetti, gestione documentale, computi metrici, giornale di cantiere e SAL (stati di avanzamento lavori).",
+                "Progettazione di sistemi domotici per l'efficientamento energetico con Home Assistant, integrando dispositivi consumer e dispositivi custom basati su ESPHome.",
+                "Sviluppo di strumenti dedicati per l'analisi automatizzata di documenti tramite AI (LLM)."
+            ]
         },
         {
             "ruolo": "Software Developer Full Stack (Tirocinio)",
@@ -32,36 +36,41 @@
     ],
     "competenze": {
         "linguaggi": [
-            { "nome": "JavaScript (ES6+)", "livello": "Avanzato" },
-            { "nome": "PHP", "livello": "Intermedio" },
-            { "nome": "Python", "livello": "Intermedio" },
-            { "nome": "Rust", "livello": "Base" }
+            { "nome": "JavaScript (ES6+)" },
+            { "nome": "PHP" },
+            { "nome": "Python" },
+            { "nome": "Rust" }
         ],
         "database": [
-            { "nome": "MariaDB", "livello": "Intermedio" },
-            { "nome": "PostgreSQL", "livello": "Base" }
+            { "nome": "MariaDB" },
+            { "nome": "PostgreSQL" }
         ],
         "framework_e_tecnologie": [
-            { "nome": "React", "livello": "Intermedio" },
-            { "nome": "HTML5 / CSS3", "livello": "Intermedio" },
-            { "nome": "Node.js", "livello": "Base" }
+            { "nome": "React" },
+            { "nome": "HTML5 / CSS3" },
+            { "nome": "Node.js" }
         ],
         "strumenti_e_devops": [
-            { "nome": "Git / GitHub", "livello": "Intermedio" },
-            { "nome": "Navicat / DBeaver", "livello": "Intermedio" },
-            { "nome": "Linux (Bash/CLI)", "livello": "Base" }
+            { "nome": "Git / GitHub" },
+            { "nome": "Navicat / DBeaver" },
+            { "nome": "Linux (Bash/CLI)" }
         ],
         "iot_e_automazione": [
-            { "nome": "Home Assistant (IoT)", "livello": "Intermedio" },
-            { "nome": "YAML (espHome)", "livello": "Intermedio"}
+            { "nome": "Home Assistant (IoT)" },
+            { "nome": "YAML (espHome)" }
         ],
-        "ai":[
-            { "nome": "AI Coding Agents", "livello": "Intermedio" },
-            { "nome": "Agentic Development Workflows", "livello": "Intermedio" },
-            { "nome": "LLM CLI Tools", "livello": "Intermedio" },
-            { "nome": "Local LLM Testing / Inference", "livello": "Base" }
+        "ai_e_llm": [
+            { "nome": "Sviluppo assistito da AI con agenti di coding (Claude Code, Codex)" },
+            { "nome": "LLM proprietari: Claude, GPT, Gemini" },
+            { "nome": "Modelli open-weight via OpenRouter" },
+            { "nome": "LLM in locale: Ollama, LM Studio" },
+            { "nome": "Prompt engineering" }
         ]
     },
+    "lingue": [
+        { "lingua": "Italiano", "livello": "Madrelingua" },
+        { "lingua": "Inglese", "livello": "A2/B1 – lettura e comprensione di documentazione tecnica" }
+    ],
     "formazione": [
         {
             "corso": "Diploma di Tecnico Superiore (ITS) - Software Developer",

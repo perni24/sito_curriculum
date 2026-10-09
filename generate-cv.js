@@ -13,7 +13,7 @@ const CATEGORY_LABELS = {
     framework_e_tecnologie: "Framework e tecnologie",
     strumenti_e_devops: "Strumenti e DevOps",
     iot_e_automazione: "IoT e automazione",
-    ai: "AI e sviluppo assistito"
+    ai_e_llm: "AI e LLM"
 };
 
 const STYLE = `
@@ -27,7 +27,7 @@ const STYLE = `
 
     @page {
         size: A4;
-        margin: 14mm 15mm;
+        margin: 12mm 15mm;
     }
 
     * {
@@ -38,7 +38,9 @@ const STYLE = `
         margin: 0;
         background: #eef2f7;
         color: var(--text);
-        font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+        /* Solo font di sistema: i web font (es. Inter da Google Fonts) in alcuni browser
+           finiscono nel PDF senza mappatura del testo e diventano illeggibili per gli ATS */
+        font-family: "Segoe UI", Arial, Helvetica, sans-serif;
         font-size: 10pt;
         line-height: 1.45;
         -webkit-print-color-adjust: exact;
@@ -114,7 +116,7 @@ const STYLE = `
     }
 
     section {
-        margin-top: 14px;
+        margin-top: 12px;
     }
 
     h2 {
@@ -193,8 +195,14 @@ const STYLE = `
         color: var(--muted);
     }
 
+    .languages span + span::before {
+        content: "|";
+        margin: 0 8px;
+        color: var(--border);
+    }
+
     .consent {
-        margin-top: 18px;
+        margin-top: 12px;
         color: var(--muted);
         font-size: 7.5pt;
     }
@@ -332,17 +340,19 @@ function renderProjects(progetti) {
 
 function renderSkills(competenze) {
     const rows = Object.entries(competenze).map(([category, skills]) => {
+        // Se le voci contengono già virgole o due punti, le separo con ";" per non confonderle
+        const separator = skills.some(s => /[,:]/.test(s.nome)) ? "; " : ", ";
         const list = skills
             .map(s => escapeHtml(s.nome) + (s.livello ? ` <span class="level">– ${escapeHtml(s.livello.toLowerCase())}</span>` : ""))
-            .join(", ");
+            .join(separator);
         return `<li><strong>${escapeHtml(formatCategoryName(category))}:</strong> ${list}</li>`;
     });
     return section("Competenze tecniche", `<ul class="skills">${rows.join("")}</ul>`);
 }
 
 function renderLanguages(lingue) {
-    const rows = lingue.map(l => `<li><strong>${escapeHtml(l.lingua)}:</strong> ${escapeHtml(l.livello)}</li>`);
-    return section("Lingue", `<ul class="skills">${rows.join("")}</ul>`);
+    const items = lingue.map(l => `<span><strong>${escapeHtml(l.lingua)}:</strong> ${escapeHtml(l.livello)}</span>`);
+    return section("Lingue", `<p class="languages">${items.join(" ")}</p>`);
 }
 
 function renderEducation(formazione) {
@@ -374,9 +384,6 @@ function generateHtml(data) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Curriculum Vitae - ${escapeHtml(data.nome)}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>${STYLE}</style>
 </head>
 <body>

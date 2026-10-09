@@ -12,7 +12,7 @@ Per un nome di output diverso:
 node generate-cv.js cv.html
 ```
 
-Per il PDF: apri l'HTML nel browser, `Ctrl+P` → "Salva come PDF", disattiva "Intestazioni e piè di pagina".
+Per il PDF: apri l'HTML in Chrome o Edge, `Ctrl+P` → "Salva come PDF", disattiva "Intestazioni e piè di pagina". Salvalo in `pdf/curriculum.pdf`.
 
 Per aggiornare il curriculum modifica `data.json` e rilancia il comando.
 

@@ -160,7 +160,8 @@ body.dark-mode .download-btn {
     grid-template-columns: minmax(220px, 0.28fr) minmax(0, 1fr);
     grid-template-areas:
         "contacts experience"
-        "education skills";
+        "education skills"
+        "languages skills";
     gap: 24px;
     margin-top: 24px;
 }
@@ -192,6 +193,10 @@ body.dark-mode .download-btn {
 
     #competenze-section {
         grid-area: skills;
+    }
+
+    #lingue-section {
+        grid-area: languages;
     }
 }
 
@@ -284,6 +289,14 @@ h2 {
     color: var(--text-color);
     font-size: 0.96rem;
     margin-bottom: 0;
+}
+
+.note-list {
+    padding-left: 18px;
+}
+
+.note-list li + li {
+    margin-top: 6px;
 }
 
 .skills-grid {
