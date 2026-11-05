@@ -1,8 +1,8 @@
 {
-    "ultimo aggiornamento": "10/2026",
+    "ultimo aggiornamento": "11/2026",
     "nome": "Luca Bellini",
     "titolo": "Software Developer Full Stack",
-    "profilo": "Sviluppatore full stack con oltre 2 anni di esperienza nello sviluppo di applicativi web gestionali: anagrafiche, gestione documentale, progetti e moduli operativi su misura. Mi occupo anche di domotica per l'efficientamento energetico con Home Assistant ed ESPHome e di strumenti di analisi documentale basati su AI. Utilizzo agenti di coding AI (Claude Code, Codex) nel flusso di sviluppo.",
+    "profilo": "Sviluppatore full stack con oltre 2 anni di esperienza nello sviluppo di applicativi web gestionali in PHP, JavaScript e MariaDB: anagrafiche, gestione documentale, progetti e moduli operativi su misura. Mi occupo anche di domotica per l'efficientamento energetico con Home Assistant ed ESPHome e di strumenti di analisi documentale basati su AI. Utilizzo agenti di coding AI (Claude Code, Codex) nel flusso di sviluppo.",
     "contatti": {
         "telefono": "345 581 5112",
         "email": "perni24lb@gmail.com",
@@ -16,7 +16,7 @@
             "azienda": "Strutture-energia",
             "periodo": "04/2024 – Oggi",
             "note": [
-                "Sviluppo full stack di un gestionale aziendale per commesse e cantieri: anagrafiche, progetti, gestione documentale, computi metrici, giornale di cantiere e SAL (stati di avanzamento lavori).",
+                "Sviluppo full stack di un gestionale aziendale per commesse e cantieri: anagrafiche, progetti, gestione documentale, computi metrici, giornale di cantiere e SAL (stati di avanzamento lavori). Stack: PHP, JavaScript, MariaDB.",
                 "Progettazione di sistemi domotici per l'efficientamento energetico con Home Assistant, integrando dispositivi consumer e dispositivi custom basati su ESPHome.",
                 "Sviluppo di strumenti dedicati per l'analisi automatizzata di documenti tramite AI (LLM)."
             ]
@@ -32,6 +32,14 @@
             "azienda": "Comune di Grone",
             "periodo": "2022 – 2023",
             "note": "Supporto amministrativo e digitalizzazione processi."
+        }
+    ],
+    "progetti": [
+        {
+            "nome": "Planner App – applicazione desktop open source",
+            "tecnologie": ["Python (Starlette)", "React", "Tailwind", "SQLite", "MCP", "GitHub Actions"],
+            "link": "https://github.com/perni24/planner",
+            "descrizione": "Gestione di aree di lavoro, progetti, task e subtask con avanzamento automatico; server MCP integrato per operare sui dati da un client AI; build portable Windows/Linux con release via GitHub Actions."
         }
     ],
     "competenze": {

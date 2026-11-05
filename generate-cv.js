@@ -27,7 +27,7 @@ const STYLE = `
 
     @page {
         size: A4;
-        margin: 12mm 15mm;
+        margin: 10mm 15mm;
     }
 
     * {
@@ -41,8 +41,8 @@ const STYLE = `
         /* Solo font di sistema: i web font (es. Inter da Google Fonts) in alcuni browser
            finiscono nel PDF senza mappatura del testo e diventano illeggibili per gli ATS */
         font-family: "Segoe UI", Arial, Helvetica, sans-serif;
-        font-size: 10pt;
-        line-height: 1.45;
+        font-size: 9.8pt;
+        line-height: 1.38;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
     }
@@ -116,7 +116,7 @@ const STYLE = `
     }
 
     section {
-        margin-top: 12px;
+        margin-top: 10px;
     }
 
     h2 {
@@ -135,7 +135,7 @@ const STYLE = `
     }
 
     .entry + .entry {
-        margin-top: 9px;
+        margin-top: 7px;
     }
 
     .entry-head {
@@ -167,6 +167,10 @@ const STYLE = `
 
     p {
         margin: 0;
+    }
+
+    .course {
+        color: var(--heading);
     }
 
     ul {
@@ -202,7 +206,7 @@ const STYLE = `
     }
 
     .consent {
-        margin-top: 12px;
+        margin-top: 6px;
         color: var(--muted);
         font-size: 7.5pt;
     }
@@ -361,7 +365,14 @@ function renderEducation(formazione) {
             const org = [f.istituto && escapeHtml(f.istituto), f.voto && `Voto: ${escapeHtml(f.voto)}`]
                 .filter(Boolean)
                 .join(" | ");
-            return entry(f.corso, f.anno, org);
+            // Su una riga sola (corso – istituto | voto) per tenere il CV in una pagina
+            return `
+        <div class="entry">
+            <div class="entry-head">
+                <p><strong class="course">${escapeHtml(f.corso)}</strong>${org ? ` <span class="org">– ${org}</span>` : ""}</p>
+                ${f.anno ? `<span class="date">${escapeHtml(f.anno)}</span>` : ""}
+            </div>
+        </div>`;
         })
         .join(""));
 }
