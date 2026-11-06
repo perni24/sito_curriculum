@@ -1,4 +1,6 @@
 :root {
+    /* Tipografia unica per i contenuti delle sezioni (come in Formazione) */
+    --fs-content: 0.95rem;
     --bg-color: #f5f7fb;
     --surface-color: #ffffff;
     --surface-muted: #f8fafc;
@@ -157,11 +159,7 @@ body.dark-mode .download-btn {
 
 .cv-layout {
     display: grid;
-    grid-template-columns: minmax(220px, 0.28fr) minmax(0, 1fr);
-    grid-template-areas:
-        "contacts experience"
-        "education skills"
-        "languages skills";
+    grid-template-columns: minmax(280px, 0.35fr) minmax(0, 1fr);
     gap: 24px;
     margin-top: 24px;
 }
@@ -169,35 +167,10 @@ body.dark-mode .download-btn {
 .sidebar,
 .content {
     display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 24px;
     align-content: start;
-}
-
-@media (min-width: 821px) {
-    .sidebar,
-    .content {
-        display: contents;
-    }
-
-    #contatti-section {
-        grid-area: contacts;
-    }
-
-    #esperienze-section {
-        grid-area: experience;
-    }
-
-    #formazione-section {
-        grid-area: education;
-    }
-
-    #competenze-section {
-        grid-area: skills;
-    }
-
-    #lingue-section {
-        grid-area: languages;
-    }
+    min-width: 0;
 }
 
 .panel {
@@ -228,15 +201,12 @@ h2 {
 
 .contact-label {
     color: var(--heading-color);
-    font-size: 0.82rem;
+    font-size: var(--fs-content);
     font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
 }
 
 .contact-value {
-    color: var(--text-color);
-    font-size: 0.95rem;
+    font-size: var(--fs-content);
     overflow-wrap: anywhere;
 }
 
@@ -264,13 +234,10 @@ h2 {
 
 .item h3 {
     color: var(--heading-color);
-    font-size: 1.08rem;
+    font-size: var(--fs-content);
+    font-weight: 700;
     line-height: 1.35;
     margin-bottom: 5px;
-}
-
-#formazione-section .item h3 {
-    font-size: 0.95rem;
 }
 
 #formazione-section .item + .item {
@@ -280,14 +247,13 @@ h2 {
 .azienda-periodo,
 .istituto-anno {
     color: var(--muted-color);
-    font-size: 0.94rem;
+    font-size: var(--fs-content);
     margin-bottom: 10px;
 }
 
 .note,
 .education-vote {
-    color: var(--text-color);
-    font-size: 0.96rem;
+    font-size: var(--fs-content);
     margin-bottom: 0;
 }
 
@@ -299,47 +265,38 @@ h2 {
     margin-top: 6px;
 }
 
+/* Una categoria per riga, con pallino come le voci di Esperienza e Formazione */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 22px;
-}
-
-.skill-category h3 {
-    color: var(--heading-color);
-    font-size: 0.82rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    margin-bottom: 11px;
-    text-transform: uppercase;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
 }
 
 .skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
     margin: 0;
     padding: 0;
     list-style: none;
+    font-size: var(--fs-content);
 }
 
-.skill-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    min-height: 32px;
-    border: 1px solid var(--border-color);
-    border-radius: 999px;
-    background: var(--surface-muted);
-    color: var(--heading-color);
-    font-size: 0.86rem;
-    font-weight: 600;
-    padding: 6px 10px;
-}
-
-.skill-level {
+.project-tech {
+    margin-top: 10px;
     color: var(--muted-color);
-    font-size: 0.75rem;
+}
+
+.skill-tag {
+    display: inline;
+}
+
+.skill-tag--nowrap {
+    white-space: nowrap;
+}
+
+/* Il separatore resta attaccato alla voce precedente: si va a capo solo tra una voce e l'altra */
+.skill-tag:not(:last-child)::after {
+    content: "·";
+    margin: 0 4px 0 8px;
+    color: var(--muted-color);
     font-weight: 700;
 }
 
@@ -373,12 +330,7 @@ footer p {
     }
 
     .cv-layout {
-        grid-template-columns: 1fr;
-        grid-template-areas: none;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 }
 

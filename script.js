@@ -33,8 +33,22 @@ function el(tag, props = {}, children = []) {
     return element;
 }
 
+const CATEGORY_LABELS = {
+    linguaggi: "Linguaggi",
+    database: "Database",
+    framework_e_tecnologie: "Framework e tecnologie",
+    strumenti_e_devops: "Strumenti e DevOps",
+    iot_e_automazione: "IoT e automazione",
+    ai_e_llm: "AI e LLM"
+};
+
+// "https://www.linkedin.com/in/nome/" -> "linkedin.com/in/nome"
+function stripProtocol(url) {
+    return url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+}
+
 function formatCategoryName(category) {
-    return category.replace(/_/g, " ");
+    return CATEGORY_LABELS[category] || category.replace(/_/g, " ");
 }
 
 function renderCV(data) {
@@ -46,6 +60,7 @@ function renderCV(data) {
 
     renderContacts(data.contatti);
     renderExperiences(data.esperienze);
+    renderProjects(data.progetti);
     renderSkills(data.competenze);
     renderEducation(data.formazione);
     renderLanguages(data.lingue);
@@ -77,8 +92,8 @@ function renderContacts(contatti) {
         { label: "Residenza", value: contatti.residenza },
         { label: "Email", value: contatti.email, href: `mailto:${contatti.email}` },
         { label: "Telefono", value: contatti.telefono, href: `tel:${contatti.telefono.replace(/\s/g, "")}` },
-        { label: "GitHub", value: "github.com/perni24", href: contatti.github },
-        { label: "LinkedIn", value: "Profilo LinkedIn", href: contatti.linkedin }
+        { label: "GitHub", value: stripProtocol(contatti.github), href: contatti.github },
+        { label: "LinkedIn", value: stripProtocol(contatti.linkedin), href: contatti.linkedin }
     ];
 
     contactEntries.forEach(item => {
@@ -113,21 +128,62 @@ function renderExperiences(esperienze) {
     });
 }
 
+function renderProjects(progetti) {
+    const section = document.getElementById("progetti-section");
+    if (!progetti || !progetti.length) {
+        section.hidden = true;
+        return;
+    }
+
+    const progettiList = document.getElementById("progetti-list");
+    progettiList.innerHTML = "";
+
+    progetti.forEach(progetto => {
+        const children = [el("h3", { textContent: progetto.nome })];
+
+        if (progetto.link) {
+            const linkText = stripProtocol(progetto.link);
+            children.push(el("p", { className: "azienda-periodo" }, [
+                el("a", { href: progetto.link, target: "_blank", rel: "noopener", textContent: linkText })
+            ]));
+        }
+
+        const descrizione = Array.isArray(progetto.descrizione) ? progetto.descrizione : [progetto.descrizione];
+        if (descrizione.length > 1) {
+            children.push(el("ul", { className: "note note-list" }, descrizione.map(d => el("li", { textContent: d }))));
+        } else if (descrizione[0]) {
+            children.push(el("p", { className: "note", textContent: descrizione[0] }));
+        }
+
+        if (progetto.tecnologie && progetto.tecnologie.length) {
+            const tech = el("ul", { className: "skill-list project-tech" });
+            progetto.tecnologie.forEach(t => {
+                tech.appendChild(el("li", { className: "skill-tag skill-tag--nowrap", textContent: t }));
+                tech.appendChild(document.createTextNode(" "));
+            });
+            children.push(tech);
+        }
+
+        progettiList.appendChild(el("article", { className: "item" }, children));
+    });
+}
+
 function renderSkills(competenze) {
     const competenzeContainer = document.getElementById("competenze-container");
     competenzeContainer.innerHTML = "";
 
     for (const [categoria, skills] of Object.entries(competenze)) {
         const list = el("ul", { className: "skill-list" });
+
         skills.forEach(skill => {
-            const children = [el("span", { textContent: skill.nome })];
-            if (skill.livello) {
-                children.push(el("span", { className: "skill-level", textContent: skill.livello }));
-            }
-            list.appendChild(el("li", { className: "skill-badge" }, children));
+            const children = [skill.nome];
+            // Le voci brevi non vanno mai spezzate a metà ("JavaScript (ES6+)"); quelle lunghe possono andare a capo
+            const className = skill.nome.length <= 24 ? "skill-tag skill-tag--nowrap" : "skill-tag";
+            list.appendChild(el("li", { className }, children));
+            list.appendChild(document.createTextNode(" "));
         });
 
-        competenzeContainer.appendChild(el("div", { className: "skill-category" }, [
+        competenzeContainer.appendChild(el("div", { className: "skill-category item" }, [
             el("h3", { textContent: formatCategoryName(categoria) }),
             list
         ]));
